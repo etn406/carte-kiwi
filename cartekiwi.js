@@ -57,12 +57,31 @@ class CarteKiwi {
     
     this.ctx.clearRect(0, 0, this.width, this.height)
     
+    const dx = this.width * 0.62
+    const dy = this.height * 0.11
+    const dw = this.width * (0.98 - 0.62)
+    const dh = this.height * (0.77 - 0.11)
+    const ratio = dw / dh
+    
+    let sx = 0, sy = 0
+    let sw = this.picture.width
+    let sh = this.picture.height
+    
+    if (this.picture.width < this.picture.height) {
+      sh = sw * (dh / dw)
+      sy = this.picture.height / 2 - sh / 2
+    }
+    else {
+      sw = sh * (dw / dh)
+      sx = this.picture.width / 2 - sw / 2
+    }
+    
     this.ctx.drawImage(
       this.picture,
-      0, 0,
-      this.picture.width, this.picture.height,
-      this.width * 0.62, this.height * 0.11,
-      this.width * (0.98 - 0.62), this.height * (0.77 - 0.11)
+      sx, sy,
+      sw, sh,
+      dx, dy,
+      dw, dh
     )
     
     this.ctx.drawImage(this.image, 0, 0)
