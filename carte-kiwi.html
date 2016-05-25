@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Carte Kiwi</title>
+    <style>
+      @font-face {
+        font-family: "PhontPhreaks Handwriting";
+        src: url("phontphreaks-handwriting.ttf");
+      }
+      
+      canvas {
+        width: 66%;
+        max-width: 10cm;
+      }
+      
+      form, form input {
+        font-family: sans-serif;
+        font-size: small;
+      }
+      
+      form input[name^="date"] {
+        width: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <canvas class="kiwi" title="Pour sauvegarder votre carte Kiwi, faites un clic droit sur l'image, puis ‟Enregistrer l'image sous...”">
+        Avec ce navigateur, c'est pas possible.
+      </canvas>
+      
+      <form>
+        <p>
+          <label for="inputName">Carte attribuée à</label>
+          <input type="text" name="name" id="inputName" placeholder="Nom Prénom" />,
+          <label for="inputDateStart">valide du</label>
+          <input type="text" name="dateStart" id="inputDateStart" value="01/01">
+          <label for="inputName">au</label>
+          <input type="text" name="dateEnd" id="inputDateEnd" value="31/12">.
+        </p>
+      </form>
+    </main>
+    
+    <footer>
+      <p>Aucune de vos informations n'est envoyée sur le serveur.</p>
+      <p><a href="https://twitter.com/etngv">Montrez-moi vos cartes Kiwi sur Twitter !</a></p>
+      <p><a href="http://github.com/etienne-gauvin/carte-kiwi">Voir le code-source</a></p>
+    </footer>
+    
+    <script src="cartekiwi.js"></script>
+    <script>
+      (function(){
+        
+        const carteKiwi = new CarteKiwi(document.querySelector('main'))
+        carteKiwi.draw()
+        
+      })()
+    </script>
+  </body>
+</html>
