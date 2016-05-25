@@ -3,7 +3,7 @@ class CarteKiwi {
 	constructor(container) {
 
     this.fontFamily = 'PhontPhreaks Handwriting'
-    this.fontColor = '#665FB2'
+    this.fontColor = '#1F0AFF'
     
     this.container = container
     this.canvas = this.container.querySelector('canvas')
@@ -42,12 +42,12 @@ class CarteKiwi {
     return this.inputDateEnd.value
   }
   
-  get fontSizeMedium() {
+  get fontSizeName() {
     return this.height * 0.10
   }
   
-  get fontSizeSmall() {
-    return this.height * 0.08
+  get fontSizeDate() {
+    return this.height * 0.10
   }
 	
   /**
@@ -67,9 +67,9 @@ class CarteKiwi {
     
     this.ctx.drawImage(this.image, 0, 0)
     
-    this.handwriteText(this.name, 0.18, 0.94, this.fontSizeMedium)
-    this.handwriteText(this.dateStart, 0.50, 0.84, this.fontSizeSmall)
-    this.handwriteText(this.dateEnd, 0.77, 0.84, this.fontSizeSmall)
+    this.handwriteText(this.name, 0.18, 0.94, this.fontSizeName)
+    this.handwriteText(this.dateStart, 0.50, 0.84, this.fontSizeDate)
+    this.handwriteText(this.dateEnd, 0.77, 0.84, this.fontSizeDate)
           
     requestAnimationFrame(this.draw.bind(this))
   }
